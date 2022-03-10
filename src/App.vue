@@ -9,6 +9,28 @@
   </div>
 </template>
 
+<script>
+import { mapGetters } from "vuex";
+
+export default {
+  name: "App",
+  computed: {
+    ...mapGetters(["isLoginedUser"]),
+  },
+  mounted() {
+    if (this.isLoginedUser) {
+      this.$router.push({
+        name: "todo",
+      });
+    } else {
+      this.$router.push({
+        name: "login",
+      });
+    }
+  },
+};
+</script>
+
 <style lang="sass">
 @import "assets/__init.sass"
 

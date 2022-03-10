@@ -16,7 +16,10 @@ export default new Vuex.Store({
   },
   getters: {
     isLoginedUser(state) {
-      return state.user.username === state.loginData.username;
+      return (
+        state.user.username === state.loginData.username &&
+        state.user.username === state.loginData.username
+      );
     },
   },
   mutations: {},
