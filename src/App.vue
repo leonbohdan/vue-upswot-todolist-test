@@ -15,10 +15,10 @@ import { mapGetters } from "vuex";
 export default {
   name: "App",
   computed: {
-    ...mapGetters(["isLoginedUser"]),
+    ...mapGetters(["isAuthorizedUser", "initialiseLoginedUser"]),
   },
   mounted() {
-    if (this.isLoginedUser) {
+    if (this.isAuthorizedUser) {
       this.$router.push({
         name: "todo",
       });
@@ -27,6 +27,9 @@ export default {
         name: "login",
       });
     }
+  },
+  created() {
+    this.$store.dispatch("initializeLoginedUser");
   },
 };
 </script>
