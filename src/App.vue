@@ -1,19 +1,29 @@
 <template>
   <div id="app">
+    <header-layout />
+
     <nav>
       <router-link to="/login">LoginPage</router-link> |
       <router-link to="/todo">TodoList</router-link>
     </nav>
 
     <router-view />
+
+    <footer-layout />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import HeaderLayout from "./layout/Header.vue";
+import FooterLayout from "./layout/Footer.vue";
 
 export default {
   name: "App",
+  components: {
+    HeaderLayout,
+    FooterLayout,
+  },
   computed: {
     ...mapGetters(["isAuthorizedUser", "initialiseLoginedUser"]),
   },
