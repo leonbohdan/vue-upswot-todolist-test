@@ -1,5 +1,9 @@
 <template>
-  <div class="hello"></div>
+  <div class="loginForm">
+    <!-- <div class="container">
+      <button type="button" class="button">Button</button>
+    </div> -->
+  </div>
 </template>
 
 <script>
@@ -8,4 +12,4 @@ export default {
 };
 </script>
 
-<style scoped lang="sass"></style>
+<style lang="sass"></style>

@@ -11,15 +11,24 @@ html
 body
   margin: 0
 
+a
+  text-decoration-line: none
+  color: currentColor
+
 .header
   &__nav
-    min-height: 50px
     padding: 10px 0
     background: $header-color
 
+    .logOut
+      +hover(color, #363636)
+
 .footer
-  min-height: 175px
   background: $footer-color
+
+  .link
+    padding: 5px 10px
+    +hover(color, grey)
 
 .container
   width: calc(100% - 30px)
@@ -27,6 +36,9 @@ body
   margin: 0 auto
   +mobile_min
     max-width: 1200px
+
+.size24
+  font-size: 24px
 
 .p-rel
   position: relative

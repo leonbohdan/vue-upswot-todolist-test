@@ -24,7 +24,7 @@
           </svg>
         </router-link>
 
-        <router-link to="/login">LogOut</router-link>
+        <router-link to="/login" class="logOut bold size24">LogOut</router-link>
       </div>
     </nav>
 
