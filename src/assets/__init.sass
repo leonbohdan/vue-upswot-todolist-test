@@ -10,6 +10,8 @@ html
 
 body
   margin: 0
+  color: $text-color
+  line-height: 25px
 
 a
   text-decoration-line: none
@@ -21,7 +23,7 @@ a
     background: $header-color
 
     .logOut
-      +hover(color, #363636)
+      +hover(color, #000)
 
 .footer
   background: $footer-color
@@ -37,6 +39,8 @@ a
   +mobile_min
     max-width: 1200px
 
+.size20
+  font-size: 20px
 .size24
   font-size: 24px
 
@@ -45,6 +49,10 @@ a
 
 .pointer
   cursor: pointer
+
+.link-c
+  color: $header-c-bottom
+  +hover(color, $main-blue)
 
 .boxed
   width: 100%
@@ -68,8 +76,12 @@ a
 .ml-35
   margin-left: 35px
 
+.mb-5
+  margin-bottom: 5px
 .mb-10
   margin-bottom: 10px
+.mb-20
+  margin-bottom: 20px
 .mb-15
   margin-bottom: 15px
 .mb-40
@@ -91,9 +103,12 @@ a
 .f-column
   flex-direction: column
 
+.text-c
+  text-align: center
+
 .button
   background-color: $main-blue
-  border: 2px solid #0076C0
+  border: 2px solid $main-blue
   color: #fff
   box-sizing: border-box
   font-weight: 700
@@ -101,9 +116,20 @@ a
   cursor: pointer
   padding: 8px 20px
   min-width: 130px
+  min-height: 53px
   transition: all .2s ease-in-out
+
+  &.grey
+    background-color: $button-gray
+    border: 0
+    color: $text-color
+    font-weight: 400
+    font-size: 25px
+    min-height: 63px
+
   +hover_min
     background-color: #fff
-    color: #0076C0
+    color: $main-blue
 
 input[type=text]
+  min-height: 53px

@@ -50,10 +50,11 @@ export default {
     background-repeat: no-repeat
     width: 100%
     min-height: 457px
+    .container
+      margin: 0 auto 60px
 
   &__message
     font-size: 55px
     line-height: 156.69%
     color: #fff
-    margin-bottom: 60px
 </style>

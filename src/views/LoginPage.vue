@@ -1,6 +1,8 @@
 <template>
-  <div class="main p-rel">
-    <div class="container mb-40 mt-40">
+  <div class="main">
+    <div class="container p-rel mb-40 mt-40">
+      <login-form />
+
       <div class="maxW-665 mb-15">
         <span class="bold-500">Business Analytics</span>
         — a new, convenient tool for managing and forecasting your business
@@ -82,8 +84,6 @@
         </div>
       </div>
     </div>
-
-    <login-form />
   </div>
 </template>
 
