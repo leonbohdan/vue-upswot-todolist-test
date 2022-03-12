@@ -1,6 +1,8 @@
 <template>
   <div class="todoList">
-    <h1>This is todoList page</h1>
+    <div class="container">
+      <h1>This is todoList page</h1>
+    </div>
   </div>
 </template>
 

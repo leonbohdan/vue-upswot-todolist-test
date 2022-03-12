@@ -1,5 +1,7 @@
 <template>
-  <div class="footer">Footer</div>
+  <div class="footer">
+    <div class="container"></div>
+  </div>
 </template>
 
 <script>
@@ -9,7 +11,9 @@ export default {
 </script>
 
 <style lang="sass">
-.footer
-  min-height: 175px
-  background: #333
+// @import "../assets/__init.sass"
+
+// .footer
+//   min-height: 175px
+//   background: $footer-color
 </style>

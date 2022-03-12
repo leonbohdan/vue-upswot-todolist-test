@@ -2,11 +2,6 @@
   <div id="app">
     <header-layout />
 
-    <nav>
-      <router-link to="/login">LoginPage</router-link> |
-      <router-link to="/todo">TodoList</router-link>
-    </nav>
-
     <router-view />
 
     <footer-layout />
@@ -46,11 +41,4 @@ export default {
 
 <style lang="sass">
 @import "assets/__init.sass"
-
-#app
-  font-family: Avenir, Helvetica, Arial, sans-serif
-  -webkit-font-smoothing: antialiased
-  -moz-osx-font-smoothing: grayscale
-  text-align: center
-  color: #2c3e50
 </style>
