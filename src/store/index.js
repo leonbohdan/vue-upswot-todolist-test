@@ -16,26 +16,23 @@ export default new Vuex.Store({
     authorizedUser: false,
     todos: [
       {
+        id: 1,
         name: "TodoName",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aperiam!",
       },
       {
+        id: 12,
         name: "TodoName2",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aperiam!",
       },
       {
+        id: 13,
         name: "TodoName3",
         body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, aperiam!",
       },
     ],
   },
   getters: {
-    isEqualData(state) {
-      return (
-        state.user.username === state.loginData.username &&
-        state.user.password === state.loginData.password
-      );
-    },
     getUser(state) {
       return state.user;
     },
@@ -66,6 +63,15 @@ export default new Vuex.Store({
 
       localStorage.setItem("loginedUser", false);
     },
+    ADD_TODO(state, newTodo) {
+      console.log("ADD_TODO", newTodo);
+    },
+    REMOVE_TODO(state, id) {
+      console.log("REMOVE_TODO", id);
+    },
+    EDIT_TODO(state, todo) {
+      console.log("EDIT_TODO", todo);
+    },
   },
   actions: {
     initializeLoginedUser({ commit }) {
@@ -76,6 +82,15 @@ export default new Vuex.Store({
     },
     logOutStatus({ commit }) {
       commit("LOGOUT_USER_STATUS");
+    },
+    addTodo({ commit }, newTodo) {
+      commit("ADD_TODO", newTodo);
+    },
+    removeTodo({ commit }, id) {
+      commit("REMOVE_TODO", id);
+    },
+    editTodo({ commit }, todo) {
+      commit("EDIT_TODO", todo);
     },
   },
   modules: {},

@@ -46,19 +46,23 @@
         <div class="size60 bold text-c">Thank you {{ getUser.username }}</div>
 
         <div v-if="!isAddTodoForm" class="text-c mb-20">
-          <button type="button" class="button boxed" @click="addTodo()">
-            Add Todo
+          <button type="button" class="button boxed" @click="addTodoFormOpen()">
+            Create Todo
           </button>
         </div>
 
-        <add-todo-form v-if="isAddTodoForm" @close-add-form="closeAddForm()" />
+        <add-todo-form
+          v-if="isAddTodoForm"
+          @close-add-form="closeAddForm()"
+          :todoEditId="todoEditId"
+        />
 
         <div v-else v-for="(todo, i) in getTodos" :key="i" class="todo mb-20">
           <div class="bold-500 flex f-center">
             {{ todo.name }}
 
             <svg
-              @click="editTodo()"
+              @click="editTodo(todo.id)"
               class="pointer ml-10 svgTodo"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -74,7 +78,7 @@
             </svg>
 
             <svg
-              @click="deleteTodo()"
+              @click="deleteTodo(todo.id)"
               class="pointer ml-10 svgTodo"
               xmlns="http://www.w3.org/2000/svg"
               x="0px"
@@ -109,21 +113,23 @@ export default {
   data() {
     return {
       isAddTodoForm: false,
+      todoEditId: 0,
     };
   },
   computed: {
     ...mapGetters(["getTodos", "getUser"]),
   },
   methods: {
-    deleteTodo() {
-      console.log("deleteTodo");
+    deleteTodo(id) {
+      this.$store.dispatch("removeTodo", id);
     },
-    editTodo() {
-      console.log("editTodo");
-    },
-    addTodo() {
+    editTodo(id) {
+      this.todoEditId = id;
       this.isAddTodoForm = true;
-      console.log("addTodo");
+      // this.$store.dispatch("editTodo", todo);
+    },
+    addTodoFormOpen() {
+      this.isAddTodoForm = true;
     },
     closeAddForm() {
       this.isAddTodoForm = false;

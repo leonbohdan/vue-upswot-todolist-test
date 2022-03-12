@@ -21,9 +21,16 @@
 <script>
 export default {
   name: "AddTodoForm",
+  props: {
+    todoEditId: {
+      type: Number,
+      default: 0,
+    },
+  },
   data() {
     return {
       newTodo: {
+        id: 0,
         name: "",
         body: "",
       },
@@ -31,7 +38,7 @@ export default {
   },
   methods: {
     saveTodo() {
-      console.log("saveTodo");
+      this.$store.dispatch("addTodo", this.newTodo);
       this.$emit("close-add-form");
     },
   },
