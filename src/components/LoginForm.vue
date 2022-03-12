@@ -1,14 +1,50 @@
 <template>
   <div class="loginForm">
     <div class="loginForm__login mb-20">
-      <div class="flex f-column mb-40">
+      <div class="flex f-column mb-40 p-rel">
         <label for="name" class="mb-5">Name</label>
-        <input type="text" name="name" />
+        <input type="text" name="name" :class="{ error: false }" />
+
+        <span v-if="false" class="error flex f-center">
+          <svg
+            class="mr-10"
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 1.29622L9.70378 0L5.49999 4.20377L1.29622 0L0 1.29622L4.20377 5.49999L0 9.70378L1.29622 11L5.49999 6.79623L9.70375 11L11 9.70378L6.79623 5.49999L11 1.29622Z"
+              fill="#D60000"
+            />
+          </svg>
+
+          <span>Enter right user name</span>
+        </span>
       </div>
 
-      <div class="flex f-column mb-40">
+      <div class="flex f-column mb-40 p-rel">
         <label for="name" class="mb-5">Password</label>
-        <input type="text" name="password" />
+        <input type="text" name="password" :class="{ error: false }" />
+
+        <span v-if="false" class="error flex f-center">
+          <svg
+            class="mr-10"
+            width="11"
+            height="11"
+            viewBox="0 0 11 11"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11 1.29622L9.70378 0L5.49999 4.20377L1.29622 0L0 1.29622L4.20377 5.49999L0 9.70378L1.29622 11L5.49999 6.79623L9.70375 11L11 9.70378L6.79623 5.49999L11 1.29622Z"
+              fill="#D60000"
+            />
+          </svg>
+
+          <span>Enter right password</span>
+        </span>
       </div>
 
       <button type="button" class="button boxed mb-20">LOGIN</button>
@@ -31,14 +67,29 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../assets/_vars.sass"
+
 .loginForm
   position: absolute
-  right: 20px
-  top: -230px
   background: #fff
-  box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1)
-  width: 480px
+
+  +mobile_min
+    box-shadow: 2px 2px 15px 2px rgba(0, 0, 0, 0.1)
+    right: 20px
+    top: -230px
+    width: 480px
+
+  +mobile
+    position: relative
+    width: 100%
+    margin-bottom: 40px
 
   &__login
     padding: 40px 30px 0 30px
+    +mobile
+      padding: 0
+
+    .error
+      position: absolute
+      bottom: -25px
 </style>

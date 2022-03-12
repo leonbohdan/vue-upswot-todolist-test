@@ -3,6 +3,7 @@
     <div class="container">
       <div class="footer__top p-30 flex f-space f-center">
         <svg
+          class="footerLogo"
           width="56"
           height="35"
           fill="none"
@@ -23,14 +24,23 @@
         </svg>
 
         <div class="footer__links">
-          <router-link to="/login" class="link">Terms & Conditions</router-link>
-          <router-link to="/login" class="link">Privacy</router-link>
-          <router-link to="/login" class="link"
+          <router-link to="/login" class="link nowrap"
+            >Terms & Conditions</router-link
+          >
+
+          <router-link to="/login" class="link nowrap">Privacy</router-link>
+
+          <router-link to="/login" class="link nowrap"
             >Notice at Collection</router-link
           >
-          <router-link to="/login" class="link">CA Privacy Hub</router-link>
-          <router-link to="/login" class="link">Contact Us</router-link>
-          <router-link to="/login" class="link">Sitemap</router-link>
+
+          <router-link to="/login" class="link nowrap"
+            >CA Privacy Hub</router-link
+          >
+
+          <router-link to="/login" class="link nowrap">Contact Us</router-link>
+
+          <router-link to="/login" class="link nowrap">Sitemap</router-link>
         </div>
       </div>
 
@@ -49,14 +59,31 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../assets/_vars.sass"
+
 .footer
   color: #fff
 
+  .footerLogo
+    +mobile
+      margin-bottom: 20px
+
   &__top
     border-bottom: 1px solid #fff
+    +mobile
+      flex-direction: column
 
-  &__links .link:last-child
-    padding-right: 0
+  &__links
+    +mobile
+      display: flex
+      flex-direction: column
+      width: 100%
+
+    .link
+    // &:first-child
+    //   padding-left: 0
+    &:last-child
+      padding-right: 0
 
   .p-30
     padding: 30px 0

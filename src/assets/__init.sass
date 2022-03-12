@@ -50,6 +50,9 @@ a
 .pointer
   cursor: pointer
 
+.nowrap
+  white-space: nowrap
+
 .link-c
   color: $header-c-bottom
   +hover(color, $main-blue)
@@ -75,6 +78,9 @@ a
 
 .ml-35
   margin-left: 35px
+
+.mr-10
+  margin-right: 10px
 
 .mb-5
   margin-bottom: 5px
@@ -106,6 +112,9 @@ a
 .text-c
   text-align: center
 
+.error
+  color: #D60000
+
 .button
   background-color: $main-blue
   border: 2px solid $main-blue
@@ -133,3 +142,13 @@ a
 
 input[type=text]
   min-height: 53px
+  border: 1px solid #9A9A9A
+  font-size: 30px
+  box-shadow: none
+
+  &.error
+    border: 1px solid #D60000
+
+  &:focus
+    outline: none
+    border: 1px solid #101010

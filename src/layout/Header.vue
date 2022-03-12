@@ -44,6 +44,8 @@ export default {
 </script>
 
 <style lang="sass">
+@import "../assets/_vars.sass"
+
 .header
   &__bg
     background-image: url(../assets/main_bg.png)
@@ -51,7 +53,8 @@ export default {
     width: 100%
     min-height: 457px
     .container
-      margin: 0 auto 60px
+      +mobile_min
+        margin: 0 auto 60px
 
   &__message
     font-size: 55px
