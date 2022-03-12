@@ -27,10 +27,6 @@ export default {
       this.$router.push({
         name: "todo",
       });
-    } else {
-      this.$router.push({
-        name: "login",
-      });
     }
   },
   created() {

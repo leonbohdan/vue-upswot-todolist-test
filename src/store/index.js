@@ -49,7 +49,7 @@ export default new Vuex.Store({
   mutations: {
     INITIALISE_LOGINED_USER(state) {
       if (localStorage.getItem("loginedUser")) {
-        let logined = localStorage.getItem("loginedUser");
+        let logined = JSON.parse(localStorage.getItem("loginedUser"));
 
         if (logined) {
           state.authorizedUser = true;
@@ -64,7 +64,7 @@ export default new Vuex.Store({
     LOGOUT_USER_STATUS(state) {
       state.authorizedUser = false;
 
-      localStorage.setItem("loginedUser", JSON.stringify(state.authorizedUser));
+      localStorage.setItem("loginedUser", false);
     },
   },
   actions: {

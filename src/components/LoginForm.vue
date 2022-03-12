@@ -6,11 +6,11 @@
         <input
           type="text"
           name="name"
-          :class="{ error: false }"
+          :class="{ inputError: isErrorName }"
           v-model="inputName"
         />
 
-        <span v-if="false" class="error flex f-center">
+        <span v-if="isErrorName" class="error flex f-center">
           <svg
             class="mr-10"
             width="11"
@@ -34,11 +34,11 @@
         <input
           type="text"
           name="password"
-          :class="{ error: false }"
+          :class="{ inputError: isErrorPassword }"
           v-model="inputPassword"
         />
 
-        <span v-if="false" class="error flex f-center">
+        <span v-if="isErrorPassword" class="error flex f-center">
           <svg
             class="mr-10"
             width="11"
@@ -85,27 +85,36 @@ export default {
     return {
       inputName: "",
       inputPassword: "",
+      isErrorName: false,
+      isErrorPassword: false,
     };
   },
   computed: {
     ...mapGetters(["getUser"]),
-    isEqualUser() {
-      return (
-        this.getUser.username === this.inputName &&
-        this.getUser.password === this.inputPassword
-      );
+    isEqualUserName() {
+      return this.getUser.username === this.inputName;
+    },
+    isEqualUserPassword() {
+      return this.getUser.password === this.inputPassword;
     },
   },
   methods: {
     compareInputedData() {
-      if (this.isEqualUser) {
+      if (!this.isEqualUserName) {
+        this.isErrorName = true;
+      }
+      if (!this.isEqualUserPassword) {
+        this.isErrorPassword = true;
+      }
+      if (this.isEqualUserName && this.isEqualUserPassword) {
+        this.isErrorName = false;
+        this.isErrorPassword = false;
+
         this.$store.dispatch("changeAuthorizedStatus");
 
         this.$router.push({
           name: "todo",
         });
-      } else {
-        console.log("this.isEqualUser", this.isEqualUser);
       }
     },
   },
