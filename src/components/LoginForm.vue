@@ -99,7 +99,11 @@ export default {
   methods: {
     compareInputedData() {
       if (this.isEqualUser) {
-        console.log("this.isEqualUser", this.isEqualUser);
+        this.$store.dispatch("changeAuthorizedStatus");
+
+        this.$router.push({
+          name: "todo",
+        });
       } else {
         console.log("this.isEqualUser", this.isEqualUser);
       }

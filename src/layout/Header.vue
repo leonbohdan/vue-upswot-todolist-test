@@ -24,11 +24,18 @@
           </svg>
         </router-link>
 
-        <router-link to="/login" class="logOut bold size24">LogOut</router-link>
+        <a
+          v-if="isAuthorizedUser"
+          html="/"
+          class="logOut bold size24 pointer"
+          @click="logOut()"
+        >
+          LogOut
+        </a>
       </div>
     </nav>
 
-    <div class="header__bg flex f-end">
+    <div v-if="isLoginPage" class="header__bg flex f-end">
       <div class="container header__message">
         <div>Welcome to</div>
         <div>Business Analytics Online</div>
@@ -38,8 +45,25 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "MainHeader",
+  computed: {
+    ...mapGetters(["isAuthorizedUser"]),
+    isLoginPage() {
+      return this.$route.name === "login";
+    },
+  },
+  methods: {
+    logOut() {
+      this.$store.dispatch("logOutStatus");
+
+      this.$router.push({
+        name: "login",
+      });
+    },
+  },
 };
 </script>
 
