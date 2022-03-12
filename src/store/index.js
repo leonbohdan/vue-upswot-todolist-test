@@ -33,7 +33,7 @@ export default new Vuex.Store({
     isEqualData(state) {
       return (
         state.user.username === state.loginData.username &&
-        state.user.username === state.loginData.username
+        state.user.password === state.loginData.password
       );
     },
     getUser(state) {

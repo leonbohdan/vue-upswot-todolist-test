@@ -3,7 +3,12 @@
     <div class="loginForm__login mb-20">
       <div class="flex f-column mb-40 p-rel">
         <label for="name" class="mb-5">Name</label>
-        <input type="text" name="name" :class="{ error: false }" />
+        <input
+          type="text"
+          name="name"
+          :class="{ error: false }"
+          v-model="inputName"
+        />
 
         <span v-if="false" class="error flex f-center">
           <svg
@@ -26,7 +31,12 @@
 
       <div class="flex f-column mb-40 p-rel">
         <label for="name" class="mb-5">Password</label>
-        <input type="text" name="password" :class="{ error: false }" />
+        <input
+          type="text"
+          name="password"
+          :class="{ error: false }"
+          v-model="inputPassword"
+        />
 
         <span v-if="false" class="error flex f-center">
           <svg
@@ -47,7 +57,13 @@
         </span>
       </div>
 
-      <button type="button" class="button boxed mb-20">LOGIN</button>
+      <button
+        type="button"
+        class="button boxed mb-20"
+        @click="compareInputedData()"
+      >
+        LOGIN
+      </button>
 
       <div class="text-c">
         <router-link to="/login" class="link-c size20"
@@ -61,8 +77,34 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "LoginForm",
+  data() {
+    return {
+      inputName: "",
+      inputPassword: "",
+    };
+  },
+  computed: {
+    ...mapGetters(["getUser"]),
+    isEqualUser() {
+      return (
+        this.getUser.username === this.inputName &&
+        this.getUser.password === this.inputPassword
+      );
+    },
+  },
+  methods: {
+    compareInputedData() {
+      if (this.isEqualUser) {
+        console.log("this.isEqualUser", this.isEqualUser);
+      } else {
+        console.log("this.isEqualUser", this.isEqualUser);
+      }
+    },
+  },
 };
 </script>
 
