@@ -79,10 +79,7 @@ export default {
       flex-direction: column
       width: 100%
 
-    .link
-    // &:first-child
-    //   padding-left: 0
-    &:last-child
+    .link:last-child
       padding-right: 0
 
   .p-30

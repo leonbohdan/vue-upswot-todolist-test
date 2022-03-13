@@ -76,6 +76,7 @@ export default {
     background-repeat: no-repeat
     width: 100%
     min-height: 457px
+
     .container
       +mobile_min
         margin: 0 auto 60px
