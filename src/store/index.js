@@ -65,14 +65,20 @@ export default new Vuex.Store({
     },
     ADD_TODO(state, newTodo) {
       state.todos = [...state.todos, newTodo];
-      console.log("ADD_TODO", newTodo);
     },
     REMOVE_TODO(state, id) {
       state.todos = state.todos.filter((todo) => todo.id !== id);
-      console.log("REMOVE_TODO", id);
     },
     EDIT_TODO(state, todo) {
-      console.log("EDIT_TODO", todo);
+      const newArr = state.todos.map((el) => {
+        if (el.id === todo.id) {
+          return { ...el, name: todo.name, body: todo.body };
+        } else {
+          return el;
+        }
+      });
+
+      state.todos = [...newArr];
     },
   },
   actions: {

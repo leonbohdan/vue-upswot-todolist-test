@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "AddTodoForm",
   props: {
@@ -46,11 +48,18 @@ export default {
     };
   },
   computed: {
+    ...mapGetters(["getTodos"]),
     isDisabledButton() {
       return !this.newTodo.name || !this.newTodo.body;
     },
   },
   methods: {
+    getTodo(id) {
+      const todo = this.getTodos.filter((el) => el.id === id);
+      this.newTodo.id = todo[0].id;
+      this.newTodo.name = todo[0].name;
+      this.newTodo.body = todo[0].body;
+    },
     turnBack() {
       this.$emit("close-add-form");
     },
@@ -58,9 +67,19 @@ export default {
       if (!this.newTodo.name || !this.newTodo.body) {
         return;
       }
-      this.$store.dispatch("addTodo", this.newTodo);
+      if (this.todoEditId) {
+        this.$store.dispatch("editTodo", this.newTodo);
+      }
+      if (!this.todoEditId) {
+        this.$store.dispatch("addTodo", this.newTodo);
+      }
       this.$emit("close-add-form");
     },
+  },
+  mounted() {
+    if (this.todoEditId) {
+      this.getTodo(this.todoEditId);
+    }
   },
 };
 </script>

@@ -139,12 +139,12 @@ export default {
     editTodo(id) {
       this.todoEditId = id;
       this.isAddTodoForm = true;
-      // this.$store.dispatch("editTodo", todo);
     },
     addTodoFormOpen() {
       this.isAddTodoForm = true;
     },
     closeAddForm() {
+      this.todoEditId = 0;
       this.isAddTodoForm = false;
     },
   },
