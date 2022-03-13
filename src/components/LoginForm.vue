@@ -66,9 +66,7 @@
       </button>
 
       <div class="text-c">
-        <router-link to="/login" class="link-c size20"
-          >Forgot Password</router-link
-        >
+        <router-link to="/" class="link-c size20">Forgot Password</router-link>
       </div>
     </div>
 

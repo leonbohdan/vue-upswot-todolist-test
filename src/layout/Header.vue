@@ -2,7 +2,7 @@
   <div class="header">
     <nav class="header__nav">
       <div class="container flex f-space f-center">
-        <router-link to="/login">
+        <router-link to="/">
           <svg
             width="103"
             height="66"

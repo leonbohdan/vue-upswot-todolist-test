@@ -24,23 +24,21 @@
         </svg>
 
         <div class="footer__links">
-          <router-link to="/login" class="link nowrap"
+          <router-link to="/" class="link nowrap"
             >Terms & Conditions</router-link
           >
 
-          <router-link to="/login" class="link nowrap">Privacy</router-link>
+          <router-link to="/" class="link nowrap">Privacy</router-link>
 
-          <router-link to="/login" class="link nowrap"
+          <router-link to="/" class="link nowrap"
             >Notice at Collection</router-link
           >
 
-          <router-link to="/login" class="link nowrap"
-            >CA Privacy Hub</router-link
-          >
+          <router-link to="/" class="link nowrap">CA Privacy Hub</router-link>
 
-          <router-link to="/login" class="link nowrap">Contact Us</router-link>
+          <router-link to="/" class="link nowrap">Contact Us</router-link>
 
-          <router-link to="/login" class="link nowrap">Sitemap</router-link>
+          <router-link to="/" class="link nowrap">Sitemap</router-link>
         </div>
       </div>
 
