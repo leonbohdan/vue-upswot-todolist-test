@@ -112,6 +112,8 @@ a
   align-items: center
 .f-end
   align-items: flex-end
+.f-text-end
+  justify-content: flex-end
 .f-text-c
   justify-content: center
 .f-column
@@ -143,6 +145,12 @@ a
     font-weight: 400
     font-size: 25px
     min-height: 63px
+
+  &:disabled
+    pointer-events: none
+    background-color: $button-gray
+    color: #9A9A9A
+    border: $button-gray
 
   +hover_min
     background-color: #fff
